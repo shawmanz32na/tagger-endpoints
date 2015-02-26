@@ -10,6 +10,7 @@
 
     <properties>
         <appengine.app.version>1</appengine.app.version>
+        <appengine.target.version>1.9.18</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -22,12 +23,12 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>1.9.18</version>
+            <version>${appengine.target.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-endpoints</artifactId>
-            <version>1.9.18</version>
+            <version>${appengine.target.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -62,13 +63,13 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-testing</artifactId>
-            <version>1.9.18</version>
+            <version>${appengine.target.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
-            <version>1.9.18</version>
+            <version>${appengine.target.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -143,6 +144,36 @@
                 </executions>
             </plugin>
         </plugins>
+        <pluginManagement>
+          <plugins>
+            <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+            <plugin>
+              <groupId>org.eclipse.m2e</groupId>
+              <artifactId>lifecycle-mapping</artifactId>
+              <version>1.0.0</version>
+              <configuration>
+                <lifecycleMappingMetadata>
+                  <pluginExecutions>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <versionRange>[2.1,)</versionRange>
+                        <goals>
+                          <goal>display-dependency-updates</goal>
+                          <goal>display-plugin-updates</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <execute></execute>
+                      </action>
+                    </pluginExecution>
+                  </pluginExecutions>
+                </lifecycleMappingMetadata>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
     </build>
 
 </project>
